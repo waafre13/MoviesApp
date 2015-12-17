@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<movies>
+  <!--TODO: XML: Fyll inn movie-data-->
+  <movie>
+    <id></id>
+    <title></title>
+    <imageSrc></imageSrc>
+    <seen></seen>
+  </movie>
+</movies>
