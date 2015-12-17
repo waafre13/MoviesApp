@@ -2,9 +2,9 @@
 <movies>
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
-    <id></id>
-    <title></title>
-    <imageSrc></imageSrc>
-    <seen></seen>
+    <id>1000</id>
+    <title>Whopwhop</title>
+    <imageSrc>test.jpg</imageSrc>
+    <seen>true</seen>
   </movie>
 </movies>
