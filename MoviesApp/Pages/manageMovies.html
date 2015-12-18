@@ -32,8 +32,9 @@
                 <td>{{m.movie.title}}</td>
                 <td>{{m.movie.imageSrc}}</td>
                 <td>{{m.movie.seen}}</td>
-                <td><button class="btn btn-primary" ng-click="deleteMovie(m.movie.id)">Delete</button>
-                    <button class="btn btn-primary">Review</button></td>
+                <td><a class="btn btn-primary" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
+                    <a class="btn btn-primary" ng-href="/#/updateMovie/{{m.movie.id}}">Update</a>
+                    <a class="btn btn-primary" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a></td>
             </tr>
         </tbody>
     </table>
