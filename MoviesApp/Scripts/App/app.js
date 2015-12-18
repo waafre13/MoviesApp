@@ -47,28 +47,41 @@
 
     }]);
 
-    myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
+    myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", "$routeParams", function ($scope, MoviesFactory, $routeParams) {
+
+        if ($routeParams.id) {
+            $scope.movie = {};
+            MoviesFactory.getMovie($routeParams.id, function (data) {
+                $scope.movie = data.movie;
+            });
+        }
+
 
         $scope.imageToUpload = {};
 
+        $scope.updateList = function() {
+            MoviesFactory.getAllMovies(function(data) {
+                $scope.movieList = data;
+            });
+        }();
         $scope.setImageToUpload = function (files) {
             $scope.imageToUpload = files[0];
         }
 
         $scope.movieList = [];
-        function udpateMovieList()
-        {
-            MoviesFactory.getAllMovies(function (data) {
-                $scope.movieList = data;
-            });
-        };
+
         
+
+        
+
         
 
         $scope.deleteMovie = function(id) {
 
             MoviesFactory.deleteMovie(id, function(response) {
-                updateMovieList();
+                MoviesFactory.getAllMovies(function (data) {
+                    $scope.movieList = data;
+                });
             });
             
         };
