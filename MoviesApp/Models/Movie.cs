@@ -12,13 +12,7 @@ namespace MoviesApp.Models
         public String ImageSrc { get; set; }
         public bool Seen { get; set; }
 
-        // Empty constructor
-        public Movie()
-        {
-            
-        }
 
-        // Constructor with parameters
         public Movie(int id, String title, string imageSrc, bool seen)
         {
             this.Id = id;

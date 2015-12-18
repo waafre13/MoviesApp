@@ -10,6 +10,14 @@ namespace MoviesApp.Models
         public int Id { get; set; }
         public int MovieId { get; set; }
         public String Text { get; set; }
-        public int rating { get; set; }
+        public int Rating { get; set; }
+
+        public Review(int id, int movieId, string text, int rating)
+        {
+            this.Id = id;
+            this.MovieId = movieId;
+            this.Text = text;
+            this.Rating = rating;
+        }
     }
 }

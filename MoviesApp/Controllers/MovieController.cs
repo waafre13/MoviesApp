@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Xml.Linq;
 using MoviesApp.Models;
@@ -34,7 +32,7 @@ namespace MyMoviesApp.Controllers
 
         // Get movie
         [HttpGet]
-        public Movie GetMovie(int id)
+        public XElement GetMovie(int id)
         {
 
             try
@@ -46,25 +44,40 @@ namespace MyMoviesApp.Controllers
                                 where (int)movie.Element("id") == id
                                 select movie).SingleOrDefault();
 
-                Movie selMovie = new Movie();
-                selMovie.Id = (int)movieObj.Element("Id");
-                selMovie.Title = (String)movieObj.Element("title");
-                selMovie.ImageSrc = (String)movieObj.Element("imageSrc");
-                selMovie.Seen = (bool) movieObj.Element("seen");
-
-
-                return selMovie;
+                return movieObj;
             }
             catch (Exception)
             {
-
-                throw;
+                return null;
             }
         }
 
         // Update movie
         // Add New Movie
         // Delete Movie
+        [HttpDelete]
+        public bool DeleteMovie(int id)
+        {
+            try
+            {
+                XElement xmlFile = GetXmlFile();
+
+                var selMovie = (from movies in xmlFile.Descendants("movies")
+                                where (int)movies.Element("id") == id
+                                select movies).SingleOrDefault();
+
+                selMovie.Remove();
+
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/moviesDB.xml");
+                xmlFile.Save(filepath);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         [HttpPost]
         public String UploadImage()

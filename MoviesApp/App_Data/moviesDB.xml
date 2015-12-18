@@ -7,4 +7,22 @@
     <imageSrc>test.jpg</imageSrc>
     <seen>true</seen>
   </movie>
+  <movie>
+    <id>1001</id>
+    <title>Doppfopp</title>
+    <imageSrc>test.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1003</id>
+    <title>Kepler Whop</title>
+    <imageSrc>haha.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1004</id>
+    <title>Tjipptjipp</title>
+    <imageSrc>huhuh.jpg</imageSrc>
+    <seen>true</seen>
+  </movie>
 </movies>
