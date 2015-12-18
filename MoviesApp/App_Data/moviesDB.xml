@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <movies>
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
@@ -18,11 +18,5 @@
     <title>Kepler Whop</title>
     <imageSrc>haha.jpg</imageSrc>
     <seen>false</seen>
-  </movie>
-  <movie>
-    <id>1004</id>
-    <title>Tjipptjipp</title>
-    <imageSrc>huhuh.jpg</imageSrc>
-    <seen>true</seen>
   </movie>
 </movies>

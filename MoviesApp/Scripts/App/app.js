@@ -31,9 +31,9 @@
 
 
     myMoviesApp.controller("MainController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
-        $scope.test = [{ id: 1111, title: "Not yet set." }];
+        $scope.movieList = [];
         MoviesFactory.getAllMovies(function (data) {
-            $scope.test = data;
+            $scope.movieList = data;
         });
 
         //API Urls
@@ -44,13 +44,20 @@
 
     myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
 
-        $scope.movieList = [{ id: 408, title: "Not yet set." }];
-        MoviesFactory.getAllMovies(function (data) {
+        $scope.movieList = [];
+        MoviesFactory.getAllMovies(function(data) {
             $scope.movieList = data;
         });
+        
 
-        function deleteMovie(id) {
-            alert(id);
+        $scope.deleteMovie = function(id) {
+
+            MoviesFactory.deleteMovie(id, function(response) {
+                MoviesFactory.getAllMovies(function (data) {
+                    $scope.movieList = data;
+                });
+            });
+            
         };
 
     }]);
@@ -95,16 +102,16 @@
                         });
                 },
 
-                deleteMovie: function(id) {
+                deleteMovie: function (id, callback) {
                     $http.delete("api/Movie/DeleteMovie/"+id)
                         .success(function (data) {
-                            console.debug(data);
+                            callback(data);
                             return data;
                         })
                         .error(function (e) {
                             console.error(e);
                             $scope.error = e;
-                            return false;
+                            return null;
                         });
                 }
 

@@ -62,9 +62,9 @@ namespace MyMoviesApp.Controllers
             {
                 XElement xmlFile = GetXmlFile();
 
-                var selMovie = (from movies in xmlFile.Descendants("movies")
-                                where (int)movies.Element("id") == id
-                                select movies).SingleOrDefault();
+                var selMovie = (from movie in xmlFile.Descendants("movie")
+                                where (int)movie.Element("id") == id
+                                select movie).SingleOrDefault();
 
                 selMovie.Remove();
 
