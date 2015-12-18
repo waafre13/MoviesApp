@@ -3,27 +3,27 @@
     Søk: <input type="text" name="name" value="" ng-model="search.movie.title"/>
     <table class="table table-condensed">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Seen</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Seen</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="m in movieList | filter:search" ng-href="/#/reviewMovie/{{m.movie.id}}">
-                <td>{{m.movie.id}}</td>
-                <td>{{m.movie.title}}</td>
-                <td>{{m.movie.imageSrc}}</td>
-                <td>{{m.movie.seen}}</td>
-                <td><a class="btn btn-primary" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
-                    <a class="btn btn-primary" ng-href="/#/updateMovie/{{m.movie.id}}">Update</a>
-                    <a class="btn btn-primary" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a></td>
-            </tr>
+        <tr ng-repeat="m in movieList | filter:search" ng-href="/#/reviewMovie/{{m.movie.id}}">
+            <td>{{m.movie.id}}</td>
+            <td>{{m.movie.title}}</td>
+            <td>{{m.movie.imageSrc}}</td>
+            <td ng-class="{active: m.movie.seen == 'true'}">{{m.movie.seen}}</td>
+            <td><a class="btn btn-primary" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
+                <a class="btn btn-primary" ng-href="/#/updateMovie/{{m.movie.id}}">Update</a>
+                <a class="btn btn-primary" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a></td>
+        </tr>
         </tbody>
     </table>
-    <button class="btn btn-primary" ng-click="addMovie()">Add Movie</button>
+    <a class="btn btn-primary" ng-href="/#/createNewMovie">Add Movie</a>
     <h3 ng-hide="movieList[0]">There are no movies in the database.</h3>
     
 </section>

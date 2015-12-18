@@ -1,10 +1,10 @@
 ﻿<section>
     <!--TODO: VIEW: legg til form-->
 
-    <form ng-submit="addMovie(movie)">
+    <form ng-submit="addMovie(newMovie)" ng-init="console.log(this)">
         <div class="form-group">
             <label for="insertTitle">Title</label>
-            <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="movie.title">
+            <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="newMovie.title">
         </div>
         <div class="form-group">
             <label for="insertImg">Last opp bilde</label>
@@ -13,7 +13,7 @@
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" ng-model="movie.seen"> Har sett filmen før
+                <input type="checkbox" ng-model="newMovie.seen"> Har sett filmen før
             </label>
         </div>
 

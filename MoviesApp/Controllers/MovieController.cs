@@ -67,6 +67,12 @@ namespace MyMoviesApp.Controllers
                                 where (int)movie.Element("id") == movieObj.Id
                                 select movie).SingleOrDefault();
 
+                String imgPath = (String) oldMovie.Element("imageSrc");
+                if (movieObj.ImageSrc == null)
+                {
+                    movieObj.ImageSrc = imgPath;
+                } 
+
                 XElement newMovie = new XElement("movie",
                     new XElement("id", movieObj.Id),
                     new XElement("title", movieObj.Title),
@@ -95,9 +101,20 @@ namespace MyMoviesApp.Controllers
             {
                 XElement xmlFile = GetXmlFile();
 
+                int newId;
+                try
+                {
+                    newId = (int)xmlFile.Descendants("movie").Max(movie => (int)movie.Element("id"));
+                    newId++;
+                }
+                catch (Exception)
+                {
+                    newId = 1000;
+                }
+                
 
                 XElement newMovie = new XElement("movie",
-                    new XElement("id",movieObj.Id),
+                    new XElement("id",newId),
                     new XElement("title",movieObj.Title),
                     new XElement("imageSrc",movieObj.ImageSrc),
                     new XElement("seen",movieObj.Seen)
@@ -128,6 +145,14 @@ namespace MyMoviesApp.Controllers
                                 where (int)movie.Element("id") == id
                                 select movie).SingleOrDefault();
 
+                //String imgpath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/Images/"+selMovie);
+                //xmlFile.Save(imgpath);
+
+                //if (System.IO.File.Exists(imgpath))
+                //{
+                //    System.IO.File.Delete(imgpath);
+                //}
+
                 selMovie.Remove();
 
                 String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/moviesDB.xml");
@@ -150,10 +175,10 @@ namespace MyMoviesApp.Controllers
                 String fileName = file.FileName;
 
                 file.SaveAs(System.Web.Hosting.HostingEnvironment.MapPath(@"~/Images/" + fileName));
-
+                return "Yes, good stuff just happend!";
             }
 
-            return "Yes, good stuff just happend!";
+            return null;
         }
 
         public XElement GetXmlFile()
@@ -162,5 +187,6 @@ namespace MyMoviesApp.Controllers
 
             return XElement.Load(filepath);
         }
+
     }
 }

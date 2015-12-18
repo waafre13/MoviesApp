@@ -2,21 +2,15 @@
 <movies>
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
+    <id>1000</id>
+    <title>Test</title>
+    <imageSrc>frentidsby.jpg</imageSrc>
+    <seen>true</seen>
+  </movie>
+  <movie>
     <id>1001</id>
-    <title>Doppfopp</title>
-    <imageSrc>test.jpg</imageSrc>
-    <seen>false</seen>
-  </movie>
-  <movie>
-    <id>1003</id>
-    <title>Kepler Whop</title>
-    <imageSrc>haha.jpg</imageSrc>
-    <seen>false</seen>
-  </movie>
-  <movie>
-    <id>999</id>
-    <title>SomeTitle</title>
-    <imageSrc>someurl.jpg</imageSrc>
+    <title>Noe Helt Annet!</title>
+    <imageSrc>trening.jpg</imageSrc>
     <seen>true</seen>
   </movie>
 </movies>

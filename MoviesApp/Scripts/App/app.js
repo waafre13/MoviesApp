@@ -19,7 +19,7 @@
             })
             .when("/createNewMovie", {
                 templateUrl: "Pages/createNewMovie.html",
-                controller: "MainController"
+                controller: "MovieController"
             })
             .when("/deleteMovie/:id", {
                 templateUrl: "Pages/deleteMovie.html",
@@ -51,43 +51,41 @@
 
         if ($routeParams.id) {
             $scope.movie = {};
-            MoviesFactory.getMovie($routeParams.id, function (data) {
+            MoviesFactory.getMovie($routeParams.id, function(data) {
                 $scope.movie = data.movie;
             });
+        } else {
+            $scope.movieList = [];
+            $scope.updateList = function () {
+                MoviesFactory.getAllMovies(function (data) {
+                    $scope.movieList = data;
+                });
+            }();
         }
 
 
         $scope.imageToUpload = {};
 
-        $scope.updateList = function() {
-            MoviesFactory.getAllMovies(function(data) {
-                $scope.movieList = data;
-            });
-        }();
+        
         $scope.setImageToUpload = function (files) {
             $scope.imageToUpload = files[0];
+
         }
 
-        $scope.movieList = [];
-
-        
-
-        
-
-        
 
         $scope.deleteMovie = function(id) {
 
             MoviesFactory.deleteMovie(id, function(response) {
-                MoviesFactory.getAllMovies(function (data) {
-                    $scope.movieList = data;
-                });
+                updateList();
             });
             
         };
 
         $scope.addMovie = function (obj) {
 
+            console.log($scope.imageToUpload);
+
+            obj.imageSrc = $scope.imageToUpload.name;
             //var obj = { 
             //    id: 999,
             //    title: "SomeTitle",
@@ -96,6 +94,13 @@
             //};
 
             MoviesFactory.addMovie(obj, function (response) {
+                if (response) {
+                    MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
+                        console.log(response)
+                    });
+                }
+                
+
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
                 });
@@ -104,7 +109,11 @@
         };
 
         $scope.updateMovie = function (obj) {
-
+            
+            if ($scope.imageToUpload.name) {
+                obj.imageSrc = $scope.imageToUpload.name;
+            };
+            console.log(obj);
             //var obj = { 
             //    id: objId,
             //    title: "SomeTitle",
@@ -113,6 +122,12 @@
             //};
 
             MoviesFactory.updateMovie(obj, function (response) {
+                if ($scope.imageToUpload.name) {
+                    MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
+                        console.log(response);
+                    });
+                }
+
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
                 });
@@ -201,6 +216,32 @@
                             $scope.error = e;
                             return null;
                         });
+                },
+
+                uploadImage: function (image, callback) {
+
+                    var formData = new FormData();
+                    formData.append("file", image);
+                    $http
+                        .post(
+                            "api/Movie/UploadImage/",
+                            formData,
+                            {
+                                withCredentials: true,
+                                headers: { "Content-Type": undefined },
+                                transformRequest: angular.identity
+                            }
+                        )
+                        .success(function (response) {
+                            callback(response);
+                        })
+                        .error(function (e) {
+                            console.error(e);
+                            $scope.error = e;
+                            return null;
+                        });
+
+                    
                 }
 
             };
