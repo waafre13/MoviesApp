@@ -2,12 +2,6 @@
 <movies>
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
-    <id>1000</id>
-    <title>Whopwhop</title>
-    <imageSrc>test.jpg</imageSrc>
-    <seen>true</seen>
-  </movie>
-  <movie>
     <id>1001</id>
     <title>Doppfopp</title>
     <imageSrc>test.jpg</imageSrc>
