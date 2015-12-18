@@ -6,7 +6,7 @@
         <a ng-href="/#/reviewMovie/{{m.movie.id}}">
             <img class="img-responsive" src="/Images/{{m.movie.imageSrc}}"/>
         </a>
-        <div id="movieSeen"><p>Seen: {{m.movie.seen}}</p></div>
+        <div ng-class="{btn-success : m.movie.seen == 'true'}">Shalalallalla</div>
         
     </article>
 </section>

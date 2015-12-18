@@ -1,8 +1,9 @@
 ﻿<section>
     <!--TODO: VIEW: -->
-    <h1>Delete movie</h1>
-
-    <h3>{{movie.title}}</h3>
-
+    <h3>Delete {{movie.title}}</h3>
+    <article>
+        <img src="{{movie.imageSrc}}" />
+        <div class="movieSeen"><p>Seen: {{movie.seen}}</p></div>
+    </article>
     <button class="btn btn-primary" ng-click="deleteMovie(movie.id)">Delete</button>
 </section>

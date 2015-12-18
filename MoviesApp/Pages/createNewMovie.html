@@ -2,22 +2,23 @@
     <!--TODO: VIEW: legg til form-->
 
     <form ng-submit="addMovie(newMovie)" >
+
         <div class="form-group">
             <label for="insertTitle">Title</label>
             <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="newMovie.title">
         </div>
         <div class="form-group">
-            <label for="insertImg">Last opp bilde</label>
+            <label for="insertImg">Upload image</label>
             <input type="file" id="inputImg" onchange="angular.element(this).scope().setImageToUpload(this.files)" />
         </div>
 
         <div class="checkbox">
             <label>
-                <input type="checkbox" ng-model="newMovie.seen"> Har sett filmen før
+                <input type="checkbox" ng-model="newMovie.seen"> Has seen the movie before
             </label>
         </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 </section>
