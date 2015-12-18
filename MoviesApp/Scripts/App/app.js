@@ -84,15 +84,7 @@
 
         $scope.addMovie = function (obj) {
 
-            console.log($scope.imageToUpload);
-
             obj.imageSrc = $scope.imageToUpload.name;
-            //var obj = { 
-            //    id: 999,
-            //    title: "SomeTitle",
-            //    imageSrc: "someurl.jpg",
-            //    seen: true
-            //};
 
             MoviesFactory.addMovie(obj, function (response) {
                 if (response) {
@@ -100,7 +92,6 @@
                         console.log(response)
                     });
                 }
-                
 
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
@@ -115,12 +106,6 @@
                 obj.imageSrc = $scope.imageToUpload.name;
             };
             console.log(obj);
-            //var obj = { 
-            //    id: objId,
-            //    title: "SomeTitle",
-            //    imageSrc: "someurl.jpg",
-            //    seen: true
-            //};
 
             MoviesFactory.updateMovie(obj, function (response) {
                 if ($scope.imageToUpload.name) {
@@ -151,9 +136,12 @@
             });
         });
 
-        
-        
-       
+        $scope.addReview = function (obj) {
+            obj.movieId = $scope.movie.id;
+            MoviesFactory.addReview(obj, function (response) {
+                console.log(response);
+            });
+        };
 
     }]);
 

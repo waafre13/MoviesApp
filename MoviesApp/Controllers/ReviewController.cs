@@ -88,7 +88,7 @@ namespace MoviesApp.Controllers
 
         // Add New Movie
         [HttpPost]
-        public bool AddMovie(Movie movieObj)
+        public bool AddReview(Review reviewObj)
         {
             try
             {
@@ -97,26 +97,27 @@ namespace MoviesApp.Controllers
                 int newId;
                 try
                 {
-                    newId = (int)xmlFile.Descendants("movie").Max(movie => (int)movie.Element("id"));
+                    newId = (int)xmlFile.Descendants("review").Max(movie => (int)movie.Element("id"));
                     newId++;
                 }
                 catch (Exception)
                 {
-                    newId = 1000;
+                    newId = 9000;
                 }
 
 
-                XElement newMovie = new XElement("movie",
+                XElement newReview = new XElement("review",
                     new XElement("id", newId),
-                    new XElement("title", movieObj.Title),
-                    new XElement("imageSrc", movieObj.ImageSrc),
-                    new XElement("seen", movieObj.Seen)
+                    new XElement("movieId", reviewObj.MovieId),
+                    new XElement("text", reviewObj.Text),
+                    new XElement("rating", reviewObj.Rating)
                     );
 
-                xmlFile.Add(newMovie);
+                xmlFile.Add(newReview);
 
                 String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
                 xmlFile.Save(filepath);
+
                 return true;
             }
             catch (Exception)
