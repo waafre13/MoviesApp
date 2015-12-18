@@ -56,6 +56,37 @@ namespace MyMoviesApp.Controllers
         }
 
         // Update movie
+        [HttpPut]
+        public bool UpdateMovie(Movie movieObj)
+        {
+            try
+            {
+                XElement xmlFile = GetXmlFile();
+
+                var oldMovie = (from movie in xmlFile.Descendants("movie")
+                                where (int)movie.Element("id") == movieObj.Id
+                                select movie).SingleOrDefault();
+
+                XElement newMovie = new XElement("movie",
+                    new XElement("id", movieObj.Id),
+                    new XElement("title", movieObj.Title),
+                    new XElement("imageSrc", movieObj.ImageSrc),
+                    new XElement("seen", movieObj.Seen)
+                    );
+
+                oldMovie.ReplaceWith(newMovie);
+
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/moviesDB.xml");
+                xmlFile.Save(filepath);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         // Add New Movie
         [HttpPost]
         public bool AddMovie(Movie movieObj)

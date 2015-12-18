@@ -77,6 +77,23 @@
 
         };
 
+        $scope.updateMovie = function (obj) {
+
+            //var obj = { 
+            //    id: objId,
+            //    title: "SomeTitle",
+            //    imageSrc: "someurl.jpg",
+            //    seen: true
+            //};
+
+            MoviesFactory.updateMovie(obj, function (response) {
+                MoviesFactory.getAllMovies(function (data) {
+                    $scope.movieList = data;
+                });
+            });
+
+        };
+
     }]);
 
     myMoviesApp.controller("ReviewController", ["$scope", "$routeParams","MoviesFactory", function ($scope, $routeParams, MoviesFactory) {
@@ -135,6 +152,20 @@
                 addMovie: function (obj, callback) {
 
                     $http.post("api/Movie/AddMovie/", obj)
+                        .success(function (data) {
+                            callback(data);
+                            return data;
+                        })
+                        .error(function (e) {
+                            console.error(e);
+                            $scope.error = e;
+                            return null;
+                        });
+                },
+
+                updateMovie: function (obj, callback) {
+
+                    $http.put("api/Movie/UpdateMovie/", obj)
                         .success(function (data) {
                             callback(data);
                             return data;
