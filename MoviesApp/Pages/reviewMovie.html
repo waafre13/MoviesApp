@@ -1,6 +1,24 @@
 ﻿<section>
     <!--TODO: VIEW: legg til movie title og form/textarea-->
-    <h1>reviewMovie</h1>
+    <h1>Review movie</h1>
 
-    {{movie}}
+    <form>
+        <h3>{{movie.id}}  {{movie.title}} </h3>
+        <div class="form-group">
+            <label for="textfield">Your review</label>
+            <textarea class="form-control" rows="2" id="reviewText"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="selectRating">Rate the movie</label>
+            <select class="form-control" id="rateTheMovie">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option> 
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </section>

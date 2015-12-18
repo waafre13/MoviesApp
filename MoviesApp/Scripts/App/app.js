@@ -21,6 +21,15 @@
                 templateUrl: "Pages/createNewMovie.html",
                 controller: "MainController"
             })
+            .when("/deleteMovie/:id", {
+                templateUrl: "Pages/deleteMovie.html",
+                controller: "MovieController"
+            })
+           .when("/updateMovie/:id", {
+                templateUrl: "Pages/updateMovie.html",
+                controller: "MovieController"
+            })
+
             .when("/reviewMovie/:id", {
                 templateUrl: "Pages/reviewMovie.html",
                 controller: "ReviewController"
