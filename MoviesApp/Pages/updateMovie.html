@@ -1,5 +1,23 @@
 ﻿<section>
-    <!--TODO: VIEW: legg til form-->
-    <h1>updateMovie</h1>
-    {{movie.title}}
+    <h3>Update {{movie.title}}</h3>
+
+    <form>
+        <div class="form-group">
+            <label for="insertTitle">Title</label>
+            <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="movie.title">
+        </div>
+
+        <div class="form-group">
+            <img src="{{movie.imageSrc}}" /> <br />
+            <label for="insertImg">Change image</label>
+            <input type="file" id="inputImg" onchange="angular.element(this).scope().setImageToUpload(this.files)" />
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="movie.seen"> Has seen the movie
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 </section>
