@@ -36,26 +36,30 @@
             $scope.movieList = data;
         });
 
-        //API Urls
-
-        //
-
     }]);
 
     myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
 
+        $scope.imageToUpload = {};
+
+        $scope.setImageToUpload = function (files) {
+            $scope.imageToUpload = files[0];
+        }
+
         $scope.movieList = [];
-        MoviesFactory.getAllMovies(function(data) {
-            $scope.movieList = data;
-        });
+        function udpateMovieList()
+        {
+            MoviesFactory.getAllMovies(function (data) {
+                $scope.movieList = data;
+            });
+        };
+        
         
 
         $scope.deleteMovie = function(id) {
 
             MoviesFactory.deleteMovie(id, function(response) {
-                MoviesFactory.getAllMovies(function (data) {
-                    $scope.movieList = data;
-                });
+                updateMovieList();
             });
             
         };
@@ -178,7 +182,6 @@
                 }
 
             };
-
 
         }
     ]);

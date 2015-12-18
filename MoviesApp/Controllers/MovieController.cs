@@ -150,6 +150,7 @@ namespace MyMoviesApp.Controllers
                 String fileName = file.FileName;
 
                 file.SaveAs(System.Web.Hosting.HostingEnvironment.MapPath(@"~/Images/" + fileName));
+
             }
 
             return "Yes, good stuff just happend!";
