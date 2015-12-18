@@ -60,6 +60,16 @@
             
         };
 
+        $scope.addMovie = function () {
+
+            MoviesFactory.addMovie(function (response) {
+                MoviesFactory.getAllMovies(function (data) {
+                    $scope.movieList = data;
+                });
+            });
+
+        };
+
     }]);
 
     myMoviesApp.controller("ReviewController", ["$scope", "$routeParams","MoviesFactory", function ($scope, $routeParams, MoviesFactory) {
@@ -105,6 +115,27 @@
                 deleteMovie: function (id, callback) {
                     $http.delete("api/Movie/DeleteMovie/"+id)
                         .success(function (data) {
+                            callback(data);
+                            return data;
+                        })
+                        .error(function (e) {
+                            console.error(e);
+                            $scope.error = e;
+                            return null;
+                        });
+                },
+
+                addMovie: function (callback) {
+                    var obj = {
+                        id: 999,
+                        title: "SomeTitle",
+                        imageSrc: "someurl.jpg",
+                        seen: true
+                    };
+
+                    $http.post("api/Movie/AddMovie/", obj)
+                        .success(function (data) {
+                            console.log(data);
                             callback(data);
                             return data;
                         })

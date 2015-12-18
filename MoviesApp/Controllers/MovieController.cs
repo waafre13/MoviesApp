@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Web.Http;
 using System.Xml.Linq;
+using System.Xml;
 using MoviesApp.Models;
 
 namespace MyMoviesApp.Controllers
@@ -54,6 +57,30 @@ namespace MyMoviesApp.Controllers
 
         // Update movie
         // Add New Movie
+        [HttpPost]
+        public bool AddMovie(Movie movieObj)
+        {
+            try
+            {
+                XElement xmlFile = GetXmlFile();
+
+                var root = xmlFile.Element("movies");
+
+                XElement newMovie = new XElement("movie");
+
+                root.Add(newMovie);
+
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/moviesDB.xml");
+                root.Save(filepath);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
         // Delete Movie
         [HttpDelete]
         public bool DeleteMovie(int id)

@@ -1,7 +1,7 @@
 ﻿<section>
     <!--TODO: VIEW: legg til table med ng-repeat-->
     <h1>manageMovie</h1>
-    Søk: <input type="text" name="name" value="" ng-model="search.movie.title"/> 
+    Søk: <input type="text" name="name" value="" ng-model="search.movie.title"/>
     <ul>
         <li ng-repeat="m in movieList | filter:search">
             <a ng-href="/#/reviewMovie/{{m.movie.id}}">
@@ -13,6 +13,7 @@
             <button ng-click="deleteMovie(m.movie.id)">Delete</button>
         </li>
     </ul>
+    <button ng-click="addMovie()">Add Movie</button>
     <h3 ng-hide="movieList[0]">There are no movies in the database.</h3>
     
 </section>
