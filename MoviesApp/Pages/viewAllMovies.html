@@ -1,7 +1,12 @@
 ﻿<section>
     <!--TODO: VIEW: legg til article med ng-repeat-->
-    <h1>viewAllMovie</h1>
+    <h1>All movies</h1>
     <article ng-repeat="m in movieList" class="col-md-4" ng-show="movieList[0]">
-        <a ng-href="/#/reviewMovie/{{m.movie.id}}">ID: {{m.movie.id}} TITLE: <b>{{m.movie.title}}</b> IMAGE: {{m.movie.imageSrc}} SEEN: <b>{{m.movie.seen}}</b></a>
+        <h3>{{m.movie.id}}  {{m.movie.title}}</h3>
+        <a ng-href="/#/reviewMovie/{{m.movie.id}}">
+            <img src="{{m.movie.imageSrc}}"/>
+        </a>
+        <div id="movieSeen"><p>Seen: {{m.movie.seen}}</p></div>
+        
     </article>
 </section>
