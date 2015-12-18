@@ -1,16 +1,22 @@
 ﻿<section>
     <!--TODO: VIEW: legg til movie title og form/textarea-->
     <h1>Review movie</h1>
+    <h3>{{movie.id}}  {{movie.title}} </h3>
 
-    <form>
-        <h3>{{movie.id}}  {{movie.title}} </h3>
+    <article ng-repeat="r in reviewList">
+        <h2>{{r.review.id}}</h2>
+        <label>{{r.review.rating}}</label>
+        <p>{{r.review.text}}</p>
+    </article>
+    <form ng-submit="addReview(review)">
+        
         <div class="form-group">
             <label for="textfield">Your review</label>
-            <textarea class="form-control" rows="2" id="reviewText"></textarea>
+            <textarea class="form-control" rows="2" id="reviewText" ng-model="review.text"></textarea>
         </div>
         <div class="form-group">
             <label for="selectRating">Rate the movie</label>
-            <select class="form-control" id="rateTheMovie">
+            <select class="form-control" id="rateTheMovie" ng-model="review.rating">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>

@@ -2,8 +2,8 @@
 <reviews>
   <!--TODO: XML: Fyll inn reviews-data-->
   <review>
-    <id>1000</id>
-    <movieId>999</movieId>
+    <id>9000</id>
+    <movieId>1000</movieId>
     <text>This is a good movie. I would watch it again.</text>
     <rating>5</rating>
   </review>

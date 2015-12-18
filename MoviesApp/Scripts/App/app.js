@@ -51,6 +51,7 @@
 
         if ($routeParams.id) {
             $scope.movie = {};
+
             MoviesFactory.getMovie($routeParams.id, function(data) {
                 $scope.movie = data.movie;
             });
@@ -141,85 +142,118 @@
         movieId = $routeParams.id; 
 
         $scope.movie = {};
+        $scope.reviewList = [];
         MoviesFactory.getMovie(movieId, function(data) {
             $scope.movie = data.movie;
+            MoviesFactory.getReviews($scope.movie.id, function (response) {
+                console.log(response);
+                $scope.reviewList = response;
+            });
         });
 
+        
+        
+       
 
     }]);
 
     myMoviesApp.factory("MoviesFactory", ["$http",
         function ($http) {
 
+            var _get = function (url, callback, id) {
+                if (id) {
+                    url = url + id;
+                }
+                
+                console.log(url);
+                $http.get(url)
+                    .success(function (data) {
+                        callback(data);
+                    })
+                    .error(function (e) {
+                        console.error(e);
+                        $scope.error = e;
+                        return null;
+                    });
+            };
+
+            var _post = function(url, callback, obj) {
+                $http.post(url, obj)
+                    .success(function(data) {
+                        callback(data);
+                    })
+                    .error(function(e) {
+                        console.error(e);
+                        $scope.error = e;
+                        return null;
+                    });
+            };
+
+            var _put = function(url, callback, obj) {
+                $http.put(url, obj)
+                    .success(function(data) {
+                        callback(data);
+                    })
+                    .error(function(e) {
+                        console.error(e);
+                        $scope.error = e;
+                        return null;
+                    });
+            };
+
+            var _delete = function(url, callback, id) {
+                $http.delete(url + id)
+                    .success(function(data) {
+                        callback(data);
+                    })
+                    .error(function(e) {
+                        console.error(e);
+                        $scope.error = e;
+                        return null;
+                    });
+            };
+
             return {
 
+                // ---- Movies ----
+
                 getAllMovies: function (callback) {
-                    $http.get("api/Movie/GetAllMovies")
-                        .success(function (data) {
-                            callback (data);
-                        })
-                        .error(function (e) {
-                            console.error(e);
-                            $scope.error = e;
-                            return false;
-                        });
+                    _get("api/Movie/GetAllMovies", callback);
                 },
 
                 getMovie: function(id, callback) {
-                    $http.get("api/Movie/GetMovie/"+id)
-                        .success(function (data) {
-                            callback(data);
-                        })
-                        .error(function (e) {
-                            console.error(e);
-                            $scope.error = e;
-                            return false;
-                        });
+                    _get("api/Movie/GetMovie/", callback, id);
                 },
 
                 deleteMovie: function (id, callback) {
-                    $http.delete("api/Movie/DeleteMovie/"+id)
-                        .success(function (data) {
-                            callback(data);
-                            return data;
-                        })
-                        .error(function (e) {
-                            console.error(e);
-                            $scope.error = e;
-                            return null;
-                        });
+                    _delete("api/Movie/DeleteMovie/", callback, id);
                 },
 
                 addMovie: function (obj, callback) {
-
-                    $http.post("api/Movie/AddMovie/", obj)
-                        .success(function (data) {
-                            callback(data);
-                            return data;
-                        })
-                        .error(function (e) {
-                            console.error(e);
-                            $scope.error = e;
-                            return null;
-                        });
+                    _post("api/Movie/AddMovie/", callback, obj);
                 },
 
                 updateMovie: function (obj, callback) {
 
-                    $http.put("api/Movie/UpdateMovie/", obj)
-                        .success(function (data) {
-                            callback(data);
-                            return data;
-                        })
-                        .error(function (e) {
-                            console.error(e);
-                            $scope.error = e;
-                            return null;
-                        });
+                    _put("api/Movie/UpdateMovie/", callback, obj);
+                },
+
+                // ---- Reviews ----
+
+                getAllReviews: function(callback) {
+                    _get("api/Review/GetAllReviews", callback);
+                },
+
+                getReviews: function(id, callback) {
+                    _get("api/Review/GetReviews/", callback, id);
+                },
+
+                addReview: function (obj, callback) {
+                    _post("api/Review/AddReview", callback, obj);
                 },
 
                 uploadImage: function (image, callback) {
-
+                    
                     var formData = new FormData();
                     formData.append("file", image);
                     $http
@@ -245,6 +279,7 @@
                 }
 
             };
+
 
         }
     ]);

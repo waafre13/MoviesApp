@@ -34,7 +34,7 @@ namespace MoviesApp.Controllers
 
         // Get movie
         [HttpGet]
-        public IEnumerable<XElement> GetReviews(int movieId)
+        public IEnumerable<XElement> GetReviews(int id)
         {
 
             try
@@ -43,7 +43,7 @@ namespace MoviesApp.Controllers
 
 
                 var reviewList = from review in xmlFile.Descendants("review")
-                                where (int)review.Element("movieId") == movieId
+                                where (int)review.Element("movieId") == id
                                 select review;
 
                 return reviewList;
@@ -75,7 +75,7 @@ namespace MoviesApp.Controllers
 
                 oldReview.ReplaceWith(newMovie);
 
-                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewDB.xml");
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
                 xmlFile.Save(filepath);
                 return true;
             }
@@ -115,7 +115,7 @@ namespace MoviesApp.Controllers
 
                 xmlFile.Add(newMovie);
 
-                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewDB.xml");
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
                 xmlFile.Save(filepath);
                 return true;
             }
@@ -148,7 +148,7 @@ namespace MoviesApp.Controllers
 
                 selMovie.Remove();
 
-                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewDB.xml");
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
                 xmlFile.Save(filepath);
 
                 return true;
@@ -176,7 +176,7 @@ namespace MoviesApp.Controllers
 
         public XElement GetXmlFile()
         {
-            String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewDB.xml");
+            String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
 
             return XElement.Load(filepath);
         }
