@@ -60,9 +60,16 @@
             
         };
 
-        $scope.addMovie = function () {
+        $scope.addMovie = function (obj) {
 
-            MoviesFactory.addMovie(function (response) {
+            //var obj = { 
+            //    id: 999,
+            //    title: "SomeTitle",
+            //    imageSrc: "someurl.jpg",
+            //    seen: true
+            //};
+
+            MoviesFactory.addMovie(obj, function (response) {
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
                 });
@@ -125,17 +132,10 @@
                         });
                 },
 
-                addMovie: function (callback) {
-                    var obj = {
-                        id: 999,
-                        title: "SomeTitle",
-                        imageSrc: "someurl.jpg",
-                        seen: true
-                    };
+                addMovie: function (obj, callback) {
 
                     $http.post("api/Movie/AddMovie/", obj)
                         .success(function (data) {
-                            console.log(data);
                             callback(data);
                             return data;
                         })

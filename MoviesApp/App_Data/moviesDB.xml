@@ -19,4 +19,10 @@
     <imageSrc>haha.jpg</imageSrc>
     <seen>false</seen>
   </movie>
+  <movie>
+    <id>999</id>
+    <title>SomeTitle</title>
+    <imageSrc>someurl.jpg</imageSrc>
+    <seen>true</seen>
+  </movie>
 </movies>

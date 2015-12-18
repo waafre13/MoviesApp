@@ -64,14 +64,18 @@ namespace MyMoviesApp.Controllers
             {
                 XElement xmlFile = GetXmlFile();
 
-                var root = xmlFile.Element("movies");
 
-                XElement newMovie = new XElement("movie");
+                XElement newMovie = new XElement("movie",
+                    new XElement("id",movieObj.Id),
+                    new XElement("title",movieObj.Title),
+                    new XElement("imageSrc",movieObj.ImageSrc),
+                    new XElement("seen",movieObj.Seen)
+                    );
 
-                root.Add(newMovie);
+                xmlFile.Add(newMovie);
 
                 String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/moviesDB.xml");
-                root.Save(filepath);
+                xmlFile.Save(filepath);
                 return true;
             }
             catch (Exception)
