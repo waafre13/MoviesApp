@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <reviews>
   <review>
-    <id>9013</id>
-    <movieId>1008</movieId>
-    <text>Supercool dude!</text>
-    <rating>6</rating>
-  </review>
-  <review>
     <id>9014</id>
     <movieId>1007</movieId>
     <text>This was weird, man. Superweird.</text>
@@ -19,9 +13,39 @@
     <rating>6</rating>
   </review>
   <review>
-    <id>9016</id>
+    <id>9017</id>
     <movieId>1005</movieId>
-    <text>Tom Cruise!</text>
+    <text>There was probably more spectacular action in the last film but this one is just as much fun and could feasibly make a star of 31-year-old Ferguson, who steals scenes while everyone else is trying to steal memory sticks.</text>
+    <rating>5</rating>
+  </review>
+  <review>
+    <id>9018</id>
+    <movieId>1005</movieId>
+    <text>Rogue Nation is terrific fun, the best action movie of the summer without Mad Max in the title. It's also, arguably, the best Mission: Impossible movie, impressive for the fifth installment in any movie series.</text>
     <rating>6</rating>
+  </review>
+  <review>
+    <id>9019</id>
+    <movieId>1007</movieId>
+    <text>Coming up short in terms of both humour and story, Pixels runs out of lives well before the closing credits.</text>
+    <rating>1</rating>
+  </review>
+  <review>
+    <id>9020</id>
+    <movieId>1007</movieId>
+    <text>Poisoned by a noxious sexism that even Pac-Man -- not to mention Ms. Pac Man -- would find hard to swallow.</text>
+    <rating>2</rating>
+  </review>
+  <review>
+    <id>9021</id>
+    <movieId>1008</movieId>
+    <text>It's a solid, serious spy film that still has a playful glint in its eye.</text>
+    <rating>4</rating>
+  </review>
+  <review>
+    <id>9022</id>
+    <movieId>1008</movieId>
+    <text>That's right. In a film that feels about 20 minutes too long you don't get to the money shot for almost two hours! And with that much time to kill you may find yourself dreaming of a few martinis - be they shaken or stirred!</text>
+    <rating>3</rating>
   </review>
 </reviews>
