@@ -16,9 +16,11 @@
             <td>{{m.movie.title}}</td>
             <td>{{m.movie.imageSrc}}</td>
             <td>{{m.movie.seen}}</td>
-            <td><a class="btn btn-danger" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
-                <a class="btn btn-primary" ng-href="/#/updateMovie/{{m.movie.id}}">Update</a>
-                <a class="btn btn-info" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a></td>
+            <td><div class="pull-right">
+                    <a class="btn btn-danger" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
+                    <a class="btn btn-primary" ng-href="/#/updateMovie/{{m.movie.id}}">Update</a>
+                    <a class="btn btn-info" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a>
+                </div></td>
         </tr>
         </tbody>
     </table>
