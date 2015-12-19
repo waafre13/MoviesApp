@@ -37,4 +37,49 @@
     <text>Oh hell no!</text>
     <rating>1</rating>
   </review>
+  <review>
+    <id>9006</id>
+    <movieId>1003</movieId>
+    <text>Nei dette var ikke noe for min delikate smak.</text>
+    <rating>3</rating>
+  </review>
+  <review>
+    <id>9007</id>
+    <movieId>1001</movieId>
+    <text>Sykt kult! Dette vil jeg se mer av.</text>
+    <rating>6</rating>
+  </review>
+  <review>
+    <id>9008</id>
+    <movieId>1004</movieId>
+    <text>This movie is so weird. What is up with an ant-superhero? Surprisingly cool though.</text>
+    <rating>4</rating>
+  </review>
+  <review>
+    <id>9009</id>
+    <movieId>1004</movieId>
+    <text>Perfect!
+I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, felis at tempor elementum, leo metus consequat quam, vitae molestie turpis lectus nec purus.</text>
+    <rating>6</rating>
+  </review>
+  <review>
+    <id>9010</id>
+    <movieId>1004</movieId>
+    <text>Perfect!
+I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, felis at tempor elementum, leo metus consequat quam, vitae molestie turpis lectus nec purus.</text>
+    <rating>6</rating>
+  </review>
+  <review>
+    <id>9011</id>
+    <movieId>1004</movieId>
+    <text>Perfect!
+I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec efficitur, felis at tempor elementum, leo metus consequat quam, vitae molestie turpis lectus nec purus.</text>
+    <rating>6</rating>
+  </review>
+  <review>
+    <id>9012</id>
+    <movieId>1005</movieId>
+    <text>Just the same as always. Tom Cruise is still smoking hot.</text>
+    <rating>5</rating>
+  </review>
 </reviews>

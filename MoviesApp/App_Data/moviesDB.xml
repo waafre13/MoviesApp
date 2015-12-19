@@ -2,21 +2,27 @@
 <movies>
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
-    <id>1000</id>
-    <title>Film om en hund</title>
-    <imageSrc>Dog.jpg</imageSrc>
+    <id>1004</id>
+    <title>Ant-Man</title>
+    <imageSrc>Ant-Man_poster.jpg</imageSrc>
     <seen>true</seen>
   </movie>
   <movie>
-    <id>1001</id>
-    <title>Noe Helt Annet!</title>
-    <imageSrc>trening.jpg</imageSrc>
+    <id>1005</id>
+    <title>Mission Impossible</title>
+    <imageSrc>missionImpossible.jpg</imageSrc>
     <seen>true</seen>
   </movie>
   <movie>
-    <id>1003</id>
-    <title>En sykt kul film</title>
-    <imageSrc>bok.jpg</imageSrc>
+    <id>1006</id>
+    <title>Jurassic World</title>
+    <imageSrc>jurassic-world-poster-dino-chris-pratt.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1007</id>
+    <title>Pixels</title>
+    <imageSrc>pixels.jpg</imageSrc>
     <seen>true</seen>
   </movie>
 </movies>

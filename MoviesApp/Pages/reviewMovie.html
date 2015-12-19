@@ -1,11 +1,16 @@
 ﻿<section>
     <h3>Review {{movie.title}}</h3>
     <div class="col-md-6">
-        <article class="reviewBox" ng-repeat="r in reviewList">
-            <h4>{{r.review.id}}</h4>
-            <label>{{r.review.rating}}</label>
-            <p>{{r.review.text}}</p>
-        </article>
+        
+        <div class="panel panel-primary" ng-repeat="r in reviewList">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{r.review.rating}} of 6 stars</h3>
+            </div>
+            <div class="panel-body">
+                {{r.review.text}}
+            </div>
+        </div>
+
     </div>
 
     <div class="col-md-6">
