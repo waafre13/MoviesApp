@@ -28,7 +28,7 @@ namespace MyMoviesApp.Controllers
             }
             catch (Exception)
             {
-                throw;
+                return null;
             }
 
         }

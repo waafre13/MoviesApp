@@ -67,10 +67,8 @@
 
         $scope.imageToUpload = {};
 
-        
         $scope.setImageToUpload = function (files) {
             $scope.imageToUpload = files[0];
-
         }
 
 
@@ -78,8 +76,7 @@
 
             MoviesFactory.deleteMovie(id, function(response) {
                 updateList();
-            });
-            
+            });            
         };
 
         $scope.addMovie = function (obj) {
@@ -128,18 +125,28 @@
 
         $scope.movie = {};
         $scope.reviewList = [];
-        MoviesFactory.getMovie(movieId, function(data) {
+
+        MoviesFactory.getMovie(movieId, function (data) {
+
             $scope.movie = data.movie;
             MoviesFactory.getReviews($scope.movie.id, function (response) {
+
                 console.log(response);
                 $scope.reviewList = response;
             });
         });
 
         $scope.addReview = function (obj) {
+
             obj.movieId = $scope.movie.id;
             MoviesFactory.addReview(obj, function (response) {
+
                 console.log(response);
+                $scope.movie.seen = true;
+                MoviesFactory.updateMovie($scope.movie, function (response) {
+
+                    console.log(response);
+                });
             });
         };
 
@@ -222,7 +229,6 @@
                 },
 
                 updateMovie: function (obj, callback) {
-
                     _put("api/Movie/UpdateMovie/", callback, obj);
                 },
 

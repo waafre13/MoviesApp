@@ -19,4 +19,10 @@
     <text>Syke greier!</text>
     <rating>6</rating>
   </review>
+  <review>
+    <id>9003</id>
+    <movieId>1000</movieId>
+    <text>Cool Movie!</text>
+    <rating>5</rating>
+  </review>
 </reviews>

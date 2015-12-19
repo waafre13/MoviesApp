@@ -54,7 +54,7 @@ namespace MoviesApp.Controllers
             }
         }
 
-        // Update movie
+        // Update Review
         [HttpPut]
         public bool UpdateReview(Review reviewObj)
         {
@@ -66,14 +66,14 @@ namespace MoviesApp.Controllers
                                 where (int)review.Element("id") == reviewObj.Id
                                 select review).SingleOrDefault();
 
-                XElement newMovie = new XElement("movie",
+                XElement newReview = new XElement("review",
                     new XElement("id", reviewObj.Id),
                     new XElement("¨movieId", reviewObj.MovieId),
                     new XElement("text", reviewObj.Text),
                     new XElement("rating", reviewObj.Rating)
                     );
 
-                oldReview.ReplaceWith(newMovie);
+                oldReview.ReplaceWith(newReview);
 
                 String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
                 xmlFile.Save(filepath);
@@ -86,7 +86,7 @@ namespace MoviesApp.Controllers
             }
         }
 
-        // Add New Movie
+        // Add New Review
         [HttpPost]
         public bool AddReview(Review reviewObj)
         {
@@ -127,27 +127,19 @@ namespace MoviesApp.Controllers
             }
         }
 
-        // Delete Movie
+        // Delete Review
         [HttpDelete]
-        public bool DeleteMovie(int id)
+        public bool DeleteReview(int id)
         {
             try
             {
                 XElement xmlFile = GetXmlFile();
 
-                var selMovie = (from movie in xmlFile.Descendants("movie")
-                                where (int)movie.Element("id") == id
-                                select movie).SingleOrDefault();
+                var selectedReview = (from review in xmlFile.Descendants("review")
+                                where (int)review.Element("id") == id
+                                select review).SingleOrDefault();
 
-                //String imgpath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/Images/"+selMovie);
-                //xmlFile.Save(imgpath);
-
-                //if (System.IO.File.Exists(imgpath))
-                //{
-                //    System.IO.File.Delete(imgpath);
-                //}
-
-                selMovie.Remove();
+                selectedReview.Remove();
 
                 String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
                 xmlFile.Save(filepath);
@@ -160,20 +152,6 @@ namespace MoviesApp.Controllers
             }
         }
 
-        [HttpPost]
-        public String UploadImage()
-        {
-            if (System.Web.HttpContext.Current.Request.Files != null)
-            {
-                var file = System.Web.HttpContext.Current.Request.Files[0];
-                String fileName = file.FileName;
-
-                file.SaveAs(System.Web.Hosting.HostingEnvironment.MapPath(@"~/Images/" + fileName));
-                return "Yes, good stuff just happend!";
-            }
-
-            return null;
-        }
 
         public XElement GetXmlFile()
         {
