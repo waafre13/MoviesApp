@@ -112,7 +112,7 @@
 
         $scope.deleteMovie = function(id) {
 
-            MoviesFactory.deleteMovie(id, function(response) {
+            MoviesFactory.deleteMovie(id, function () {
                 $scope.movieIsDeleted = true;
                 $timeout(function () {
                     $('#myModal').modal('hide');
@@ -134,6 +134,7 @@
                     $scope.movie = response;
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
                         console.log(response);
+                        $('#myModal').modal('show');
                     });
                 }
             });
@@ -239,7 +240,7 @@
                 console.log(url);
                 $http.get(url)
                     .success(function (data) {
-                        callback(data);
+                        if(callback){callback(data);}
                     })
                     .error(function (e) {
                         console.error(e);
@@ -251,7 +252,7 @@
             var _post = function(url, callback, obj) {
                 $http.post(url, obj)
                     .success(function(data) {
-                        callback(data);
+                        if (callback){callback(data);}
                     })
                     .error(function(e) {
                         console.error(e);
@@ -263,7 +264,7 @@
             var _put = function(url, callback, obj) {
                 $http.put(url, obj)
                     .success(function(data) {
-                        callback(data);
+                        if (callback){callback(data);}
                     })
                     .error(function(e) {
                         console.error(e);
@@ -275,7 +276,7 @@
             var _delete = function(url, callback, id) {
                 $http.delete(url + id)
                     .success(function(data) {
-                        callback(data);
+                        if (callback){callback(data);}
                     })
                     .error(function(e) {
                         console.error(e);

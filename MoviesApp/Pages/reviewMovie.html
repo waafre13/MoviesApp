@@ -1,5 +1,5 @@
 ﻿<section>
-    <h3>Review {{movie.title}}</h3>
+    <h3>Review "{{movie.title}}"</h3>
     <div class="col-md-6">
 
         <div class="panel panel-primary" ng-repeat="r in reviewList" ng-show="reviewList[0]">
@@ -20,12 +20,12 @@
     <div class="col-md-6">
         <form ng-submit="addReview(review)">
             <div class="form-group">
-                <label for="textfield">Your review</label>
-                <textarea class="form-control" rows="2" id="reviewText" ng-model="review.text"></textarea>
+                <label for="reviewText">Your review</label>
+                <textarea class="form-control" rows="2" id="reviewText" ng-model="review.text" required></textarea>
             </div>
             <div class="form-group">
-                <label for="selectRating">Rate the movie</label>
-                <select class="form-control" id="rateTheMovie" ng-model="review.rating">
+                <label for="rateTheMovie">Rate the movie</label>
+                <select class="form-control" id="rateTheMovie" ng-model="review.rating" required>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
