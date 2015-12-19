@@ -74,12 +74,14 @@
   <ItemGroup>
     <Content Include="App_Data\moviesDB.xml" />
     <Content Include="App_Data\reviewsDB.xml" />
+    <Content Include="Content\Css\main.css" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="Pages\createNewMovie.html" />
     <Content Include="Pages\deleteMovie.html" />
     <Content Include="Pages\mainPage.html" />
     <Content Include="Pages\manageMovies.html" />
+    <Content Include="Pages\Partials\deleteMovieResponse.html" />
     <Content Include="Pages\Partials\header.html" />
     <Content Include="Pages\Partials\newMovieResponse.html" />
     <Content Include="Pages\reviewMovie.html" />

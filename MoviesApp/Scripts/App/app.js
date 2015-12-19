@@ -38,6 +38,10 @@
 
     });
 
+
+
+    // ------ Directives ------
+
     myMoviesApp.directive("headerView", function() {
         return {
             templateUrl: "Pages/Partials/header.html"
@@ -50,6 +54,15 @@
         }
     });
 
+    myMoviesApp.directive("deleteMovieResponse", function () {
+        return {
+            templateUrl: "Pages/Partials/deleteMovieResponse.html"
+        }
+    });
+
+
+
+    // ------ Controllers ------
 
     myMoviesApp.controller("MainController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
         $scope.movieList = [];
@@ -83,11 +96,13 @@
             $scope.imageToUpload = files[0];
         }
 
+        $scope.movieIsDeleted = false;
 
         $scope.deleteMovie = function(id) {
 
             MoviesFactory.deleteMovie(id, function(response) {
-                updateList();
+                $scope.movieIsDeleted = true;
+
             });            
         };
 
@@ -167,6 +182,10 @@
         };
 
     }]);
+
+
+
+    // ------ Factory ------
 
     myMoviesApp.factory("MoviesFactory", ["$http",
         function ($http) {
