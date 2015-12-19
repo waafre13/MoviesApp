@@ -115,8 +115,12 @@
             MoviesFactory.deleteMovie(id, function(response) {
                 $scope.movieIsDeleted = true;
                 $timeout(function () {
-                    $window.location.href = '/#/manageMovies';
-                }, 2000);
+                    $('#myModal').modal('hide');
+                    $timeout(function() {
+                        $window.location.href = '/#/manageMovies';
+                    },500);
+                }, 1800);
+
             });            
         };
 
@@ -127,7 +131,6 @@
             MoviesFactory.addMovie(obj, function (response) {
 
                 if (response) {
-
                     $scope.movie = response;
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
                         console.log(response);
@@ -156,6 +159,13 @@
             });
 
         };
+
+        $scope.navigateFromModal = function (url) {
+            $('#myModal').modal('hide');
+            $timeout(function() {
+                $window.location.href = url;
+            }, 500);
+        }
 
     }]);
 

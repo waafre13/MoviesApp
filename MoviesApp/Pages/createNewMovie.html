@@ -1,9 +1,9 @@
 ﻿<section>
     <!--TODO: VIEW: legg til form-->
 
-    <new-movie-response ng-show="movie"></new-movie-response>
+    <new-movie-response></new-movie-response>
 
-    <form ng-hide="movie" ng-submit="addMovie(newMovie)" >
+    <form ng-hide="movie" ng-submit="addMovie(newMovie)">
 
         <div class="form-group">
             <label for="insertTitle">Title</label>
@@ -20,7 +20,8 @@
             </label>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
+        
     </form>
 
 </section>

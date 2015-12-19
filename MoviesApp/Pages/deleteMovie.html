@@ -1,9 +1,22 @@
 ﻿<section>
-    <delete-movie-response ng-show="movieIsDeleted"></delete-movie-response>
+    <delete-movie-response></delete-movie-response>
 
-    <h3>Delete {{movie.title}}?</h3>
-    <article class="col-xs-12">
-        <img class="update-img" src="/Images/{{movie.imageSrc}}"/>
-    </article>
-    <button class="btn btn-danger confirmBtns" ng-click="deleteMovie(movie.id)">Delete</button>
+
+    <div class="col-md-6">
+        <h2>Title: <b>{{movie.title}}</b></h2>
+        <img class=" img-responsive" src="/Images/{{movie.imageSrc}}"/>
+    </div>
+    <div class="col-md-6">
+        <h3>Are you sure you want to delete {{movie.title}}?</h3>
+        <button type="button" class="btn btn-danger confirmBtns col-xs-6" data-toggle="modal" data-target="#myModal" ng-click="deleteMovie(movie.id)">
+            Yes, delete it.
+        </button>
+        <a type="button" class="btn btn-info confirmBtns col-xs-6" ng-href="/#/manageMovies">
+            No, take me back!
+        </a>
+    </div>
+    <!-- Button trigger modal -->
+    
+
+    
 </section>
