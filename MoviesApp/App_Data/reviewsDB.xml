@@ -25,4 +25,16 @@
     <text>Cool Movie!</text>
     <rating>5</rating>
   </review>
+  <review>
+    <id>9004</id>
+    <movieId>1000</movieId>
+    <text>Oh hell no!</text>
+    <rating>1</rating>
+  </review>
+  <review>
+    <id>9005</id>
+    <movieId>1000</movieId>
+    <text>Oh hell no!</text>
+    <rating>1</rating>
+  </review>
 </reviews>

@@ -1,30 +1,31 @@
 ﻿<section>
-    <!--TODO: VIEW: legg til movie title og form/textarea-->
-
     <h3>Review {{movie.title}}</h3>
+    <div class="col-md-6">
+        <article class="reviewBox" ng-repeat="r in reviewList">
+            <h4>{{r.review.id}}</h4>
+            <label>{{r.review.rating}}</label>
+            <p>{{r.review.text}}</p>
+        </article>
+    </div>
 
-    <article ng-repeat="r in reviewList">
-        <h2>{{r.review.id}}</h2>
-        <label>{{r.review.rating}}</label>
-        <p>{{r.review.text}}</p>
-    </article>
-    <form ng-submit="addReview(review)">
-
-        <div class="form-group">
-            <label for="textfield">Your review</label>
-            <textarea class="form-control" rows="2" id="reviewText" ng-model="review.text"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="selectRating">Rate the movie</label>
-            <select class="form-control" id="rateTheMovie" ng-model="review.rating">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option> 
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="col-md-6">
+        <form ng-submit="addReview(review)">
+            <div class="form-group">
+                <label for="textfield">Your review</label>
+                <textarea class="form-control" rows="2" id="reviewText" ng-model="review.text"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="selectRating">Rate the movie</label>
+                <select class="form-control" id="rateTheMovie" ng-model="review.rating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option> 
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 </section>
