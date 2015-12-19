@@ -25,4 +25,10 @@
     <text>Cool Movie!</text>
     <rating>5</rating>
   </review>
+  <review>
+    <id>9004</id>
+    <movieId>1006</movieId>
+    <text>asdfasdfa</text>
+    <rating>3</rating>
+  </review>
 </reviews>

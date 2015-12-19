@@ -1,0 +1,12 @@
+﻿<section class="col-xs-12">
+    <h3>Congratulations, you just created this movie!</h3>
+    <article>
+        <h2>{{movie.movie.title}}</h2>
+        <label>{{movie.movie.id}}</label>
+        <h4>{{movie.movie.rating}}</h4>
+        <img class="img-responsive" src="/Images/{{movie.movie.imageSrc}}"/>
+    </article>
+
+    <a class="btn btn-default" ng-href="/#/viewAllMovies">Show all movies</a>
+    <a class="btn btn-default" ng-href="/#/createNewMovie">Create another movie</a>
+</section>

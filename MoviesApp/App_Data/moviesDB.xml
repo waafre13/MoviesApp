@@ -13,4 +13,40 @@
     <imageSrc>trening.jpg</imageSrc>
     <seen>true</seen>
   </movie>
+  <movie>
+    <id>1002</id>
+    <title>asdf</title>
+    <imageSrc>Earth-From-Space-Space-1080x1920.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1003</id>
+    <title>asdfdasf</title>
+    <imageSrc />
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1004</id>
+    <title>asdfdsaf</title>
+    <imageSrc>homedesign.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1005</id>
+    <title>hwrtw</title>
+    <imageSrc>Earth-From-Space-Space-1080x1920.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1006</id>
+    <title>gdfafd</title>
+    <imageSrc>frentidsby.jpg</imageSrc>
+    <seen>true</seen>
+  </movie>
+  <movie>
+    <id>1007</id>
+    <title>sdaf</title>
+    <imageSrc>HD-landscape-Photographs.png</imageSrc>
+    <seen>false</seen>
+  </movie>
 </movies>

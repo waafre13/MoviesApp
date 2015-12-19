@@ -44,6 +44,12 @@
         }
     });
 
+    myMoviesApp.directive("newMovieResponse", function () {
+        return {
+            templateUrl: "Pages/Partials/newMovieResponse.html"
+        }
+    });
+
 
     myMoviesApp.controller("MainController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
         $scope.movieList = [];
@@ -67,7 +73,7 @@
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
                 });
-            }();
+            }();    
         }
 
 
@@ -90,9 +96,13 @@
             obj.imageSrc = $scope.imageToUpload.name;
 
             MoviesFactory.addMovie(obj, function (response) {
+
                 if (response) {
+
+                    $scope.movie = response;
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
-                        console.log(response)
+                        console.log(response);
+                        
                     });
                 }
 
@@ -161,11 +171,12 @@
     myMoviesApp.factory("MoviesFactory", ["$http",
         function ($http) {
 
+            // Basic Angular AJAX methods
             var _get = function (url, callback, id) {
                 if (id) {
                     url = url + id;
                 }
-                
+
                 console.log(url);
                 $http.get(url)
                     .success(function (data) {
@@ -215,6 +226,8 @@
             };
 
             return {
+
+                // 
 
                 // ---- Movies ----
 

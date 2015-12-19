@@ -1,6 +1,8 @@
 ﻿<section>
     <!--TODO: VIEW: legg til form-->
 
+    <new-movie-response ng-show="movie"></new-movie-response>
+
     <form ng-submit="addMovie(newMovie)" >
 
         <div class="form-group">
@@ -9,7 +11,7 @@
         </div>
         <div class="form-group">
             <label for="insertImg">Upload image</label>
-            <input type="file" id="inputImg" onchange="angular.element(this).scope().setImageToUpload(this.files)" />
+            <input type="file" id="inputImg" onchange="angular.element(this).scope().setImageToUpload(this.files)" required/>
         </div>
 
         <div class="checkbox">
