@@ -25,6 +25,10 @@
         <a ng-href="/#/reviewMovie/{{m.movie.id}}">
             <img class="img-responsive" src="/Images/{{m.movie.imageSrc}}" />
         </a>
-        <div ng-class="{btn-success : m.movie.seen == 'true'}">Shalalallalla</div>
+        <div class="btn" ng-class="{'btn-success' : {{m.movie.seen}} == true}">
+
+            <p ng-show="m.movie.seen == 'true'">Seen</p>
+            <p ng-hide="m.movie.seen == 'true'">Not Seen</p>
+        </div>
     </article>
 </section>
