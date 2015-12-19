@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Xml.Linq;
 using MoviesApp.Models;
@@ -11,8 +9,7 @@ namespace MoviesApp.Controllers
 {
     public class ReviewController : ApiController
     {
-        // Upload image
-        // Get all movies
+        
         [HttpGet]
         public IEnumerable<XElement> GetAllReviews()
         {
@@ -32,7 +29,7 @@ namespace MoviesApp.Controllers
 
         }
 
-        // Get movie
+        // Get reviews with movieId
         [HttpGet]
         public IEnumerable<XElement> GetReviews(int id)
         {

@@ -278,3 +278,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+MoviesApp/App_Data/reviewsDB.xml
+MoviesApp/App_Data/reviewsDB.xml
+MoviesApp/App_Data/moviesDB.xml

@@ -75,14 +75,20 @@
   <ItemGroup>
     <Content Include="App_Data\moviesDB.xml" />
     <Content Include="App_Data\reviewsDB.xml" />
+<<<<<<< HEAD
     <Content Include="CSS\stylesheet.css" />
+=======
+    <Content Include="Content\Css\main.css" />
+>>>>>>> origin/master
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="Pages\createNewMovie.html" />
     <Content Include="Pages\deleteMovie.html" />
     <Content Include="Pages\mainPage.html" />
     <Content Include="Pages\manageMovies.html" />
+    <Content Include="Pages\Partials\deleteMovieResponse.html" />
     <Content Include="Pages\Partials\header.html" />
+    <Content Include="Pages\Partials\newMovieResponse.html" />
     <Content Include="Pages\reviewMovie.html" />
     <Content Include="Pages\updateMovie.html" />
     <Content Include="Pages\viewAllMovies.html" />

@@ -1,8 +1,17 @@
 ﻿<section>
     <!--TODO: VIEW: -->
+<<<<<<< HEAD
     <h3>Delete {{movie.title}}</h3>
     <article>
         <img class="update-img" src="/Images/{{movie.imageSrc}}" />
+=======
+
+    <delete-movie-response ng-show="movieIsDeleted"></delete-movie-response>
+
+    <h3>Delete {{movie.title}}?</h3>
+    <article class="col-xs-12">
+        <img class="img-responsive" src="/Images/{{movie.imageSrc}}"/>
+>>>>>>> origin/master
         <div class="movieSeen"><p>Seen: {{movie.seen}}</p></div>
     </article>
     <button class="btn btn-primary" ng-click="deleteMovie(movie.id)">Delete</button>

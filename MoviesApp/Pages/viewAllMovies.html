@@ -1,12 +1,30 @@
 ﻿<section>
     <!--TODO: VIEW: legg til article med ng-repeat-->
     <h1>All movies</h1>
-    <article ng-repeat="m in movieList" class="col-md-4" ng-show="movieList[0]">
+    <div class="col-xs-12">
+        Filter:
+        <button ng-click="tab = 1; search.movie.seen = ''"
+                ng-class="{active : tab == 1}"
+                class="btn btn-default">
+            Show All
+        </button>
+        <button ng-click="tab = 2; search.movie.seen = 'true'"
+                ng-class="{active : tab == 2}"
+                class="btn btn-default">
+            Seen
+        </button>
+        <button ng-click="tab = 3; search.movie.seen = 'false'"
+                ng-class="{active : tab == 3}"
+                class="btn btn-default">
+            Not seen
+        </button>
+    </div>
+
+    <article ng-repeat="m in movieList | filter:search" class="col-md-4" ng-show="movieList[0]">
         <h3>{{m.movie.id}}  {{m.movie.title}}</h3>
         <a ng-href="/#/reviewMovie/{{m.movie.id}}">
-            <img class="img-responsive" src="/Images/{{m.movie.imageSrc}}"/>
+            <img class="img-responsive" src="/Images/{{m.movie.imageSrc}}" />
         </a>
         <div ng-class="{btn-success : m.movie.seen == 'true'}">Shalalallalla</div>
-        
     </article>
 </section>

@@ -38,12 +38,31 @@
 
     });
 
+
+
+    // ------ Directives ------
+
     myMoviesApp.directive("headerView", function() {
         return {
             templateUrl: "Pages/Partials/header.html"
         }
     });
 
+    myMoviesApp.directive("newMovieResponse", function () {
+        return {
+            templateUrl: "Pages/Partials/newMovieResponse.html"
+        }
+    });
+
+    myMoviesApp.directive("deleteMovieResponse", function () {
+        return {
+            templateUrl: "Pages/Partials/deleteMovieResponse.html"
+        }
+    });
+
+
+
+    // ------ Controllers ------
 
     myMoviesApp.controller("MainController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
         $scope.movieList = [];
@@ -67,7 +86,7 @@
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
                 });
-            }();
+            }();    
         }
 
 
@@ -77,11 +96,13 @@
             $scope.imageToUpload = files[0];
         }
 
+        $scope.movieIsDeleted = false;
 
         $scope.deleteMovie = function(id) {
 
             MoviesFactory.deleteMovie(id, function(response) {
-                updateList();
+                $scope.movieIsDeleted = true;
+
             });            
         };
 
@@ -90,9 +111,13 @@
             obj.imageSrc = $scope.imageToUpload.name;
 
             MoviesFactory.addMovie(obj, function (response) {
+
                 if (response) {
+
+                    $scope.movie = response;
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
-                        console.log(response)
+                        console.log(response);
+                        
                     });
                 }
 
@@ -158,14 +183,19 @@
 
     }]);
 
+
+
+    // ------ Factory ------
+
     myMoviesApp.factory("MoviesFactory", ["$http",
         function ($http) {
 
+            // Basic Angular AJAX methods
             var _get = function (url, callback, id) {
                 if (id) {
                     url = url + id;
                 }
-                
+
                 console.log(url);
                 $http.get(url)
                     .success(function (data) {
@@ -215,6 +245,8 @@
             };
 
             return {
+
+                // 
 
                 // ---- Movies ----
 

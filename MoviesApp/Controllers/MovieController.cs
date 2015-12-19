@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Management.Instrumentation;
 using System.Web.Http;
 using System.Xml.Linq;
-using System.Xml;
 using MoviesApp.Models;
 
 namespace MyMoviesApp.Controllers
@@ -95,7 +92,7 @@ namespace MyMoviesApp.Controllers
 
         // Add New Movie
         [HttpPost]
-        public bool AddMovie(Movie movieObj)
+        public XElement AddMovie(Movie movieObj)
         {
             try
             {
@@ -104,7 +101,7 @@ namespace MyMoviesApp.Controllers
                 int newId;
                 try
                 {
-                    newId = (int)xmlFile.Descendants("movie").Max(movie => (int)movie.Element("id"));
+                    newId = xmlFile.Descendants("movie").Max(movie => (int)movie.Element("id"));
                     newId++;
                 }
                 catch (Exception)
@@ -124,12 +121,12 @@ namespace MyMoviesApp.Controllers
 
                 String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/moviesDB.xml");
                 xmlFile.Save(filepath);
-                return true;
+                return newMovie;
             }
             catch (Exception)
             {
 
-                return false;
+                return null;
             }
         }
 
@@ -144,14 +141,6 @@ namespace MyMoviesApp.Controllers
                 var selMovie = (from movie in xmlFile.Descendants("movie")
                                 where (int)movie.Element("id") == id
                                 select movie).SingleOrDefault();
-
-                //String imgpath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/Images/"+selMovie);
-                //xmlFile.Save(imgpath);
-
-                //if (System.IO.File.Exists(imgpath))
-                //{
-                //    System.IO.File.Delete(imgpath);
-                //}
 
                 selMovie.Remove();
 
