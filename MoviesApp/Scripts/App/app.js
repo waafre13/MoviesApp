@@ -38,8 +38,12 @@
 
     });
 
+
+
+    // ------ Init ------
+
     myMoviesApp.run(function($rootScope) {
-        $rootScope.mainNav = 1;
+        $rootScope.mainNav = 1; // Home
     });
 
 
@@ -69,6 +73,8 @@
     // ------ Controllers ------
 
     myMoviesApp.controller("MainController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
+
+        // -- Init --
         $scope.movieList = [];
         MoviesFactory.getAllMovies(function (data) {
             $scope.movieList = data;
@@ -76,7 +82,11 @@
 
     }]);
 
-    myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", "$routeParams","$timeout","$window", function ($scope, MoviesFactory, $routeParams, $timeout, $window) {
+    myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", "$routeParams", "$timeout", "$window", function ($scope, MoviesFactory, $routeParams, $timeout, $window) {
+
+        // -- Init --
+        $scope.imageToUpload = {};
+        $scope.movieIsDeleted = false;
 
         if ($routeParams.id) {
             $scope.movie = {};
@@ -90,17 +100,15 @@
                 MoviesFactory.getAllMovies(function (data) {
                     $scope.movieList = data;
                 });
-            }();    
+            }();
         }
 
 
-        $scope.imageToUpload = {};
+        // -- scope methods --
 
         $scope.setImageToUpload = function (files) {
             $scope.imageToUpload = files[0];
         }
-
-        $scope.movieIsDeleted = false;
 
         $scope.deleteMovie = function(id) {
 
@@ -152,8 +160,9 @@
     }]);
 
     myMoviesApp.controller("ReviewController", ["$scope", "$routeParams","MoviesFactory", function ($scope, $routeParams, MoviesFactory) {
-        movieId = $routeParams.id; 
 
+        // -- Init --
+        movieId = $routeParams.id;
         $scope.movie = {};
         $scope.reviewList = [];
 
@@ -167,6 +176,8 @@
             });
         });
 
+
+        // -- scope methods --
         $scope.addReview = function (obj) {
 
             // Update review object with movie id.

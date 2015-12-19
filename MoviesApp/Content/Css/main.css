@@ -8,13 +8,15 @@
 }
 
 .not-seen-movie{
-    background-color: orange;
+    background-color: #f8c668;
     padding-top: 3px;
     text-align: center;
+    color: white;
+        
 }
 
 .seen-movie{
-    background-color: forestgreen;
+    background-color: #62c762;
 }
 
 #searchMovies{

@@ -9,7 +9,7 @@ namespace MoviesApp.Controllers
 {
     public class ReviewController : ApiController
     {
-        
+        // Get list of all the reviews
         [HttpGet]
         public IEnumerable<XElement> GetAllReviews()
         {
@@ -102,17 +102,6 @@ namespace MoviesApp.Controllers
                 {
                     newId = 9000;
                 }
-
-                //try
-                //{
-                //    newId = (int)xmlFile.Descendants("review").Max(movie => (int)movie.Element("id"));
-                //    newId++;
-                //}
-                //catch (Exception)
-                //{
-                //    newId = 9000;
-                //}
-
 
                 XElement newReview = new XElement("review",
                     new XElement("id", newId),

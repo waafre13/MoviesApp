@@ -9,7 +9,7 @@ namespace MyMoviesApp.Controllers
 {
     public class MovieController : ApiController
     {
-        // Upload image
+
         // Get all movies
         [HttpGet]
         public IEnumerable<XElement> GetAllMovies()
@@ -30,7 +30,7 @@ namespace MyMoviesApp.Controllers
 
         }
 
-        // Get movie
+        // Get movie by id
         [HttpGet]
         public XElement GetMovie(int id)
         {
