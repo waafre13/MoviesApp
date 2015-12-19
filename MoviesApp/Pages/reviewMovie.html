@@ -5,6 +5,7 @@
         <div class="panel panel-primary" ng-repeat="r in reviewList">
             <div class="panel-heading">
                 <h3 class="panel-title">{{r.review.rating}} of 6 stars</h3>
+                <button ng-click="deleteReview(r.review.id)">X</button>
             </div>
             <div class="panel-body">
                 {{r.review.text}}

@@ -165,8 +165,16 @@
 
         $scope.addReview = function (obj) {
 
+            // Update review object with movie id.
             obj.movieId = $scope.movie.id;
+
+            // Post review to server
             MoviesFactory.addReview(obj, function (response) {
+
+                // Get the updated review list
+                MoviesFactory.getReviews(obj.movieId, function(response) {
+                    $scope.reviewList = response;
+                })
 
                 console.log(response);
                 $scope.movie.seen = true;
@@ -174,6 +182,17 @@
 
                     console.log(response);
                 });
+            });
+        };
+
+        $scope.deleteReview = function(id) {
+            MoviesFactory.deleteReview(id, function (response) {
+                if (response) {
+                    // Get the updated review list
+                    MoviesFactory.getReviews($scope.movie.id, function (response) {
+                        $scope.reviewList = response;
+                    })
+                }
             });
         };
 
@@ -278,6 +297,10 @@
 
                 addReview: function (obj, callback) {
                     _post("api/Review/AddReview", callback, obj);
+                },
+
+                deleteReview: function(id, callback) {
+                    _delete("api/Review/DeleteReview/", callback, id);
                 },
 
                 uploadImage: function (image, callback) {
