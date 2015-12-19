@@ -2,7 +2,7 @@
     <!--TODO: VIEW: -->
     <h3>Delete {{movie.title}}</h3>
     <article>
-        <img src="{{movie.imageSrc}}" />
+        <img class="update-img" src="/Images/{{movie.imageSrc}}" />
         <div class="movieSeen"><p>Seen: {{movie.seen}}</p></div>
     </article>
     <button class="btn btn-primary" ng-click="deleteMovie(movie.id)">Delete</button>

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +75,7 @@
   <ItemGroup>
     <Content Include="App_Data\moviesDB.xml" />
     <Content Include="App_Data\reviewsDB.xml" />
+    <Content Include="CSS\stylesheet.css" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="Pages\createNewMovie.html" />

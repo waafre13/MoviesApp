@@ -3,14 +3,20 @@
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
     <id>1000</id>
-    <title>Test</title>
-    <imageSrc>frentidsby.jpg</imageSrc>
+    <title>Film om en hund</title>
+    <imageSrc>Dog.jpg</imageSrc>
     <seen>true</seen>
   </movie>
   <movie>
     <id>1001</id>
     <title>Noe Helt Annet!</title>
     <imageSrc>trening.jpg</imageSrc>
+    <seen>true</seen>
+  </movie>
+  <movie>
+    <id>1003</id>
+    <title>En sykt kul film</title>
+    <imageSrc>bok.jpg</imageSrc>
     <seen>true</seen>
   </movie>
 </movies>
