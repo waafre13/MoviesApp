@@ -119,9 +119,6 @@
                     $scope.movie = response;
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
                         console.log(response);
-                        $timeout(function() {
-                            $window.location.href = '/#/manageMovies';
-                        }, 2000);
                     });
                 }
             });
