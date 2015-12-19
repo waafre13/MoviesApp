@@ -19,4 +19,10 @@
     <imageSrc>bok.jpg</imageSrc>
     <seen>true</seen>
   </movie>
+  <movie>
+    <id>1004</id>
+    <title>asdf</title>
+    <imageSrc>trening.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
 </movies>
