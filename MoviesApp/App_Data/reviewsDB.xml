@@ -77,12 +77,6 @@ I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec e
     <rating>6</rating>
   </review>
   <review>
-    <id>9012</id>
-    <movieId>1005</movieId>
-    <text>Just the same as always. Tom Cruise is still smoking hot.</text>
-    <rating>5</rating>
-  </review>
-  <review>
     <id>9013</id>
     <movieId>1008</movieId>
     <text>Supercool dude!</text>
@@ -96,8 +90,14 @@ I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec e
   </review>
   <review>
     <id>9015</id>
-    <movieId>1007</movieId>
-    <text>This was weird, man. Superweird.</text>
-    <rating>3</rating>
+    <movieId>1009</movieId>
+    <text>Two hours with my hero, Ronaldo. I couldn't be happier! I simply love this film.</text>
+    <rating>6</rating>
+  </review>
+  <review>
+    <id>9016</id>
+    <movieId>1005</movieId>
+    <text>Tom Cruise!</text>
+    <rating>6</rating>
   </review>
 </reviews>

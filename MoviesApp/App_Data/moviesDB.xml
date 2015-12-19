@@ -29,7 +29,7 @@
     <id>1009</id>
     <title>Ronaldo</title>
     <imageSrc>movies-ronaldo-poster.jpg</imageSrc>
-    <seen>false</seen>
+    <seen>true</seen>
   </movie>
   <movie>
     <id>1010</id>

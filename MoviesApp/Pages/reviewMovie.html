@@ -4,9 +4,10 @@
 
         <div class="panel panel-primary" ng-repeat="r in reviewList" ng-show="reviewList[0]">
             <div class="panel-heading">
+                
+                <div id="removeReview" class="glyphicon glyphicon-remove" ng-click="deleteReview(r.review.id)"></div>
                 <h3 class="panel-title">{{r.review.rating}} of 6 stars</h3>
-                <button ng-click="deleteReview(r.review.id)">X</button>
-            </div>
+             </div>
             <div class="panel-body">
                 {{r.review.text}}
             </div>

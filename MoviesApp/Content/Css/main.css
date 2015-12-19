@@ -24,3 +24,7 @@
 .confirmBtns{
     margin-top: 20px;
 }
+
+#removeReview{
+    float: right;
+}
