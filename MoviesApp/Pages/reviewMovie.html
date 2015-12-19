@@ -1,8 +1,8 @@
 ﻿<section>
     <h3>Review {{movie.title}}</h3>
     <div class="col-md-6">
-        
-        <div class="panel panel-primary" ng-repeat="r in reviewList">
+
+        <div class="panel panel-primary" ng-repeat="r in reviewList" ng-show="reviewList[0]">
             <div class="panel-heading">
                 <h3 class="panel-title">{{r.review.rating}} of 6 stars</h3>
                 <button ng-click="deleteReview(r.review.id)">X</button>
@@ -11,6 +11,8 @@
                 {{r.review.text}}
             </div>
         </div>
+
+        <h4 ng-hide="reviewList[0]">There are no reviews for this movie. Go ahead and add one!</h4>
 
     </div>
 
