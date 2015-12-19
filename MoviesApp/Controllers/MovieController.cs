@@ -99,16 +99,16 @@ namespace MyMoviesApp.Controllers
                 XElement xmlFile = GetXmlFile();
 
                 int newId;
-                try
+                bool hasMovie = xmlFile.Elements("movie").Any();
+                if (hasMovie)
                 {
                     newId = xmlFile.Descendants("movie").Max(movie => (int)movie.Element("id"));
                     newId++;
                 }
-                catch (Exception)
+                else
                 {
                     newId = 1000;
                 }
-                
 
                 XElement newMovie = new XElement("movie",
                     new XElement("id",newId),
