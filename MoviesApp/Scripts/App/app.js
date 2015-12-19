@@ -38,6 +38,10 @@
 
     });
 
+    myMoviesApp.run(function($rootScope) {
+        $rootScope.mainNav = 1;
+    });
+
 
 
     // ------ Directives ------
