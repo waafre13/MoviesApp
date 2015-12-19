@@ -82,4 +82,10 @@ I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec e
     <text>Just the same as always. Tom Cruise is still smoking hot.</text>
     <rating>5</rating>
   </review>
+  <review>
+    <id>9013</id>
+    <movieId>1008</movieId>
+    <text>Supercool dude!</text>
+    <rating>6</rating>
+  </review>
 </reviews>

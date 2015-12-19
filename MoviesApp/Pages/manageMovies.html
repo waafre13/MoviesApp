@@ -17,9 +17,9 @@
             <td>{{m.movie.title}}</td>
             <td>{{m.movie.imageSrc}}</td>
             <td ng-class="{active: m.movie.seen == 'true'}">{{m.movie.seen}}</td>
-            <td><a class="btn btn-primary" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
+            <td><a class="btn btn-danger" ng-href="/#/deleteMovie/{{m.movie.id}}">Delete</a>
                 <a class="btn btn-primary" ng-href="/#/updateMovie/{{m.movie.id}}">Update</a>
-                <a class="btn btn-primary" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a></td>
+                <a class="btn btn-info" ng-href="/#/reviewMovie/{{m.movie.id}}">Review</a></td>
         </tr>
         </tbody>
     </table>

@@ -25,4 +25,16 @@
     <imageSrc>pixels.jpg</imageSrc>
     <seen>true</seen>
   </movie>
+  <movie>
+    <id>1008</id>
+    <title>Spectre</title>
+    <imageSrc>spectre.jpeg</imageSrc>
+    <seen>true</seen>
+  </movie>
+  <movie>
+    <id>1009</id>
+    <title>Ronaldo</title>
+    <imageSrc>movies-ronaldo-poster.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
 </movies>

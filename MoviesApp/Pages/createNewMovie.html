@@ -3,7 +3,7 @@
 
     <new-movie-response ng-show="movie"></new-movie-response>
 
-    <form ng-submit="addMovie(newMovie)" >
+    <form ng-hide="movie" ng-submit="addMovie(newMovie)" >
 
         <div class="form-group">
             <label for="insertTitle">Title</label>
