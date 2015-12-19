@@ -72,7 +72,7 @@
 
     }]);
 
-    myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", "$routeParams", function ($scope, MoviesFactory, $routeParams) {
+    myMoviesApp.controller("MovieController", ["$scope", "MoviesFactory", "$routeParams","$timeout","$window", function ($scope, MoviesFactory, $routeParams, $timeout, $window) {
 
         if ($routeParams.id) {
             $scope.movie = {};
@@ -102,7 +102,9 @@
 
             MoviesFactory.deleteMovie(id, function(response) {
                 $scope.movieIsDeleted = true;
-
+                $timeout(function () {
+                    $window.location.href = '/#/manageMovies';
+                }, 2000);
             });            
         };
 
@@ -117,13 +119,11 @@
                     $scope.movie = response;
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
                         console.log(response);
-                        
+                        $timeout(function() {
+                            $window.location.href = '/#/manageMovies';
+                        }, 2000);
                     });
                 }
-
-                MoviesFactory.getAllMovies(function (data) {
-                    $scope.movieList = data;
-                });
             });
 
         };
@@ -133,18 +133,17 @@
             if ($scope.imageToUpload.name) {
                 obj.imageSrc = $scope.imageToUpload.name;
             };
-            console.log(obj);
 
             MoviesFactory.updateMovie(obj, function (response) {
+
                 if ($scope.imageToUpload.name) {
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
                         console.log(response);
                     });
                 }
-
-                MoviesFactory.getAllMovies(function (data) {
-                    $scope.movieList = data;
-                });
+                $timeout(function () {
+                    $window.location.href = '/#/manageMovies';
+                }, 2000);
             });
 
         };
