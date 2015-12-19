@@ -92,15 +92,26 @@ namespace MoviesApp.Controllers
                 XElement xmlFile = GetXmlFile();
 
                 int newId;
-                try
+                bool hasReview = xmlFile.Elements("review").Any();
+                if (hasReview)
                 {
-                    newId = (int)xmlFile.Descendants("review").Max(movie => (int)movie.Element("id"));
+                    newId = xmlFile.Descendants("review").Max(movie => (int)movie.Element("id"));
                     newId++;
                 }
-                catch (Exception)
+                else
                 {
                     newId = 9000;
                 }
+
+                //try
+                //{
+                //    newId = (int)xmlFile.Descendants("review").Max(movie => (int)movie.Element("id"));
+                //    newId++;
+                //}
+                //catch (Exception)
+                //{
+                //    newId = 9000;
+                //}
 
 
                 XElement newReview = new XElement("review",
