@@ -33,6 +33,12 @@
 tr>th:hover {
     cursor: pointer;
 }
-#removeReview{
+.removeReviewBtn{
     float: right;
+    opacity: 0.8;
+}
+
+.removeReviewBtn:hover {
+    cursor: pointer;
+    opacity: 1;
 }
