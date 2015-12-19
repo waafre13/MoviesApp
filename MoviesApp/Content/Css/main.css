@@ -1,6 +1,10 @@
 ﻿
 .update-img{
-    width: 300px;
+    width: 200px;
+}
+
+.movie-article:nth-child(3n+5){
+    clear: both;
 }
 
 .not-seen-movie{
@@ -15,4 +19,8 @@
 
 #searchMovies{
     margin-bottom: 30px;
+}
+
+.confirmBtns{
+    margin-top: 20px;
 }

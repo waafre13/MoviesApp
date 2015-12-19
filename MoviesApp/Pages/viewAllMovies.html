@@ -18,7 +18,7 @@
         </button>
     </div>
 
-    <article ng-repeat="m in movieList | filter:search" class="col-md-4" ng-show="movieList[0]">
+    <article ng-repeat="m in movieList | filter:search" class="col-md-4 movie-article" ng-show="movieList[0]">
         <h3>{{m.movie.id}}  {{m.movie.title}}</h3>
         <a ng-href="/#/reviewMovie/{{m.movie.id}}">
             <img class="img-responsive" src="/Images/{{m.movie.imageSrc}}" />

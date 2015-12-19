@@ -2,12 +2,6 @@
 <movies>
   <!--TODO: XML: Fyll inn movie-data-->
   <movie>
-    <id>1004</id>
-    <title>Ant-Man</title>
-    <imageSrc>ant-man-poster.jpg</imageSrc>
-    <seen>true</seen>
-  </movie>
-  <movie>
     <id>1005</id>
     <title>Mission Impossible</title>
     <imageSrc>missionImpossible.jpg</imageSrc>
@@ -35,6 +29,12 @@
     <id>1009</id>
     <title>Ronaldo</title>
     <imageSrc>movies-ronaldo-poster.jpg</imageSrc>
+    <seen>false</seen>
+  </movie>
+  <movie>
+    <id>1010</id>
+    <title>Ant-Man</title>
+    <imageSrc>ant-man-poster.jpg</imageSrc>
     <seen>false</seen>
   </movie>
 </movies>

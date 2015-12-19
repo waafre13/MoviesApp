@@ -88,4 +88,16 @@ I just love it. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec e
     <text>Supercool dude!</text>
     <rating>6</rating>
   </review>
+  <review>
+    <id>9014</id>
+    <movieId>1007</movieId>
+    <text>This was weird, man. Superweird.</text>
+    <rating>3</rating>
+  </review>
+  <review>
+    <id>9015</id>
+    <movieId>1007</movieId>
+    <text>This was weird, man. Superweird.</text>
+    <rating>3</rating>
+  </review>
 </reviews>
