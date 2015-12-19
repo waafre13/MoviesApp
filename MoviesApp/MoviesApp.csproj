@@ -80,6 +80,7 @@
     <Content Include="Pages\deleteMovie.html" />
     <Content Include="Pages\mainPage.html" />
     <Content Include="Pages\manageMovies.html" />
+    <Content Include="Pages\Partials\header.html" />
     <Content Include="Pages\reviewMovie.html" />
     <Content Include="Pages\updateMovie.html" />
     <Content Include="Pages\viewAllMovies.html" />

@@ -38,6 +38,12 @@
 
     });
 
+    myMoviesApp.directive("headerView", function() {
+        return {
+            templateUrl: "Pages/Partials/header.html"
+        }
+    });
+
 
     myMoviesApp.controller("MainController", ["$scope", "MoviesFactory", function ($scope, MoviesFactory) {
         $scope.movieList = [];
@@ -269,7 +275,6 @@
                             return null;
                         });
 
-                    
                 }
 
             };
