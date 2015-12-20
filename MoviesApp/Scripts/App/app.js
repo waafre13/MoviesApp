@@ -29,11 +29,11 @@
                 templateUrl: "Pages/updateMovie.html",
                 controller: "MovieController"
             })
-
             .when("/reviewMovie/:id", {
                 templateUrl: "Pages/reviewMovie.html",
                 controller: "ReviewController"
             })
+            .otherwise("/")
         ;
 
     });
@@ -68,6 +68,12 @@
         }
     });
 
+    myMoviesApp.directive("updatedMovieResponse", function () {
+        return {
+            templateUrl: "Pages/Partials/updatedMovieResponse.html"
+        }
+    });
+
 
 
     // ------ Controllers ------
@@ -76,9 +82,12 @@
 
         // -- Init --
         $scope.movieList = [];
+        $scope.mainNav = 2;
         MoviesFactory.getAllMovies(function (data) {
             $scope.movieList = data;
         });
+
+
 
     }]);
 
@@ -113,6 +122,10 @@
         $scope.deleteMovie = function(id) {
 
             MoviesFactory.deleteMovie(id, function () {
+                MoviesFactory.deleteReviewsForMovie(id, function(response) {
+                    console.log("Deleted reviews "+response);
+                }); 
+
                 $scope.movieIsDeleted = true;
                 $timeout(function () {
                     $('#myModal').modal('hide');
@@ -141,6 +154,8 @@
 
         };
 
+        
+
         $scope.updateMovie = function (obj) {
             
             if ($scope.imageToUpload.name) {
@@ -148,25 +163,30 @@
             };
 
             MoviesFactory.updateMovie(obj, function (response) {
+                $('#myModal').modal('show');
+                $timeout(function () {
+                    $('#myModal').modal('hide');
+                    $timeout(function () {
+                        $window.location.href = '/#/manageMovies';
+                    }, 500);
+                }, 2000);
 
                 if ($scope.imageToUpload.name) {
                     MoviesFactory.uploadImage($scope.imageToUpload, function(response) {
                         console.log(response);
+                        
                     });
                 }
-                $timeout(function () {
-                    $window.location.href = '/#/manageMovies';
-                }, 2000);
             });
 
         };
 
-        $scope.navigateFromModal = function (url) {
+        $scope.navigateFromModal = function(url) {
             $('#myModal').modal('hide');
             $timeout(function() {
                 $window.location.href = url;
             }, 500);
-        }
+        };
 
     }]);
 
@@ -327,6 +347,10 @@
 
                 deleteReview: function(id, callback) {
                     _delete("api/Review/DeleteReview/", callback, id);
+                },
+                
+                deleteReviewsForMovie: function(id, callback) {
+                    _delete("api/Review/DeleteReviewsForMovie/", callback, id);
                 },
 
                 uploadImage: function (image, callback) {

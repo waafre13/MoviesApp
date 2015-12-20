@@ -149,6 +149,31 @@ namespace MoviesApp.Controllers
             }
         }
 
+        // Delete Review
+        [HttpDelete]
+        public bool DeleteReviewsForMovie(int id)
+        {
+            try
+            {
+                XElement xmlFile = GetXmlFile();
+
+                IEnumerable<XElement> selectedReviews = from review in xmlFile.Descendants("review")
+                                      where (int)review.Element("movieId") == id
+                                      select review;
+
+                selectedReviews.Remove();
+
+                String filepath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/reviewsDB.xml");
+                xmlFile.Save(filepath);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
 
         public XElement GetXmlFile()
         {

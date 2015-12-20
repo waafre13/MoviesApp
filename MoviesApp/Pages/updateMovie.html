@@ -1,7 +1,10 @@
 ﻿<section>
+
+    <updated-movie-response></updated-movie-response>
+
     <h3>Update {{movie.title}}</h3>
 
-    <form ng-submit="updateMovie(movie)" >
+    <form ng-submit="updateMovie(movie)">
 
         <div class="form-group">
             <label for="insertTitle">Title</label>
@@ -9,9 +12,9 @@
         </div>
 
         <div class="form-group">
-            <img class="update-img" src="/Images/{{movie.imageSrc}}" /> <br />
+            <img class="update-img" src="/Images/{{movie.imageSrc}}"/> <br/>
             <label for="insertImg">Change image</label>
-            <input type="file" id="inputImg" onchange="angular.element(this).scope().setImageToUpload(this.files)" />
+            <input type="file" id="inputImg" onchange="angular.element(this).scope().setImageToUpload(this.files)"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
